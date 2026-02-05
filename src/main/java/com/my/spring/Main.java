@@ -3,6 +3,7 @@ package com.my.spring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.my.spring.model.Address;
 import com.my.spring.model.Employee;
 
 public class Main {
@@ -14,19 +15,22 @@ public class Main {
 //		Employee bean=ioc.getBean(Employee.class);
 //        System.out.println(bean);
 		
-		Employee bean1=ioc.getBean("emp1",Employee.class);
+		Employee bean1=ioc.getBean("emp3",Employee.class);
 		
-        bean1.setId(75);
+		Address beanAdd=ioc.getBean("add1", Address.class);
+		
+		beanAdd.setCity("Gopalganj");
+		beanAdd.setState("Bihar");
+		
+        bean1.setId(2);
         bean1.setName("kamal");
-        bean1.setGender("Male");
+        bean1.setGender("male");
+        bean1.setAddress(beanAdd);
         
         System.out.println(bean1);
         
-        Employee bean2=ioc.getBean("emp2",Employee.class);
-        bean2.setName("Haresh");
-        bean2.setId(675);
-        bean2.setGender("Male");
-        System.out.println(bean2);
+        
+       
 	}
 
 }
