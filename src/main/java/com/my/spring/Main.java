@@ -15,7 +15,7 @@ public class Main {
 //		Employee bean=ioc.getBean(Employee.class);
 //        System.out.println(bean);
 		
-		Employee bean1=ioc.getBean("emp3",Employee.class);
+		Employee bean1=ioc.getBean("emp2",Employee.class);
 		
 		Address beanAdd=ioc.getBean("add1", Address.class);
 		
@@ -28,6 +28,14 @@ public class Main {
         bean1.setAddress(beanAdd);
         
         System.out.println(bean1);
+        
+        Employee bean3=ioc.getBean("emp3",Employee.class);
+        bean3.setId(3);
+        bean3.setName("Rohit");
+        bean3.setGender("Male");
+        bean3.setAddress(beanAdd);
+        
+        System.out.println(bean3);
         
         
        
