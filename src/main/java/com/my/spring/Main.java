@@ -1,6 +1,7 @@
 package com.my.spring;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.my.spring.model.Address;
@@ -10,27 +11,25 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext ioc=new ClassPathXmlApplicationContext("application-context.xml");
+		ApplicationContext ioc=new AnnotationConfigApplicationContext("com.my.spring.model");
 		
-//		Employee bean=ioc.getBean(Employee.class);
-//        System.out.println(bean);
+
 		
-		Employee bean1=ioc.getBean("emp2",Employee.class);
+		Employee bean1=ioc.getBean(Employee.class);
 	
-		bean1.setName("Rohit");
+		bean1.setId(1);
+		bean1.setName("Hussain");
+		bean1.setGender("Male");
+
 		
-		Address ad=ioc.getBean("add1",Address.class);
+		Address add=ioc.getBean(Address.class);
+		add.setCity("Siwan");
+		add.setState("Bihar");
 		
-		ad.setCity("Gkp");
-		ad.setState("UP");
-	    
-	    
-	    System.out.println(bean1);
-        
-      
-        
-        
-       
+		System.out.println(add);
+		bean1.setAddress(add);
+		System.out.println(bean1);
+	 
 	}
 
 }
