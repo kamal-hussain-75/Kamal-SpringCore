@@ -2,25 +2,21 @@ package com.my.spring.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component(value="add2")
+public class Address2 implements IAaddress{
 
-public class Address {
-
-	private String city,state;
+	private String city="noida";
+	private  String state="UP";
 	
-	Address(){
+	public Address2() {
 		super();
 	}
-	
-	
 
-	public Address(String city, String state) {
+	public Address2(String city, String state) {
 		super();
 		this.city = city;
 		this.state = state;
 	}
-
-
 
 	public String getCity() {
 		return city;
@@ -37,10 +33,13 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Address [city=" + city + ", state=" + state + "]";
+		return "Address2 [city=" + city + ", state=" + state + "]";
 	}
+	
+	
+	
 
 }
