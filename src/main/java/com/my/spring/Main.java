@@ -15,22 +15,23 @@ public class Main {
 //		Employee bean=ioc.getBean(Employee.class);
 //        System.out.println(bean);
 		
-		Employee bean1=ioc.getBean("emp3",Employee.class);
+		Employee bean1=ioc.getBean("emp2",Employee.class);
+	
+		bean1.setName("Rohit");
 		
-		Address beanAdd=ioc.getBean("add1", Address.class);
+		Address ad=ioc.getBean("add1",Address.class);
 		
-		beanAdd.setCity("Gopalganj");
-		beanAdd.setState("Bihar");
-		
-        bean1.setId(2);
-        bean1.setName("kamal");
-        bean1.setGender("male");
-        bean1.setAddress(beanAdd);
+		ad.setCity("Gkp");
+		ad.setState("UP");
+	    
+	    
+	    System.out.println(bean1);
         
-        System.out.println(bean1);
+      
         
         
        
 	}
 
 }
+  
