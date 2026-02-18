@@ -1,5 +1,7 @@
 package com.my.spring;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,9 +16,12 @@ public class Main {
 
 		employeeDao edao=ioc.getBean("edao",employeeDao.class);
 		
-		Employee emp1=new Employee(1,"ravidas","male",23000);
+		Employee emp1=new Employee(2,"ravi","male",23034);
 		
-		edao.saveEmployee(emp1);
+//		edao.saveEmployee(emp1);
+		
+	    List<Employee> allEmp=edao.getAllEmp();
+	    System.out.println(allEmp);
         
         
        

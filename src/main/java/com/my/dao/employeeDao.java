@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.my.spring.model.Employee;
 
+import com.my.spring.model.employeeMapper;
 
 
 public class employeeDao {
@@ -19,11 +20,10 @@ public class employeeDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-//	public List<Employee> getAllEmp()
-//	{
-//		return jdbcTemplate.query("select * from employee", new EmployeeMapper());
-//
-//	}
+	public List<Employee> getAllEmp()	{
+		return jdbcTemplate.query("select * from employee", new employeeMapper());
+
+	}
 
 	public int saveEmployee(Employee e) {
 		String query = "insert into employee (id,name,salary,gender) values('" + e.getId() + "','" + e.getName() + "','" + e.getSalary() + "','"+e.getGender()+"')";
