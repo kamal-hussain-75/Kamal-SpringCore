@@ -3,7 +3,7 @@ package com.my.spring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.my.spring.model.Address;
+import com.my.dao.employeeDao;
 import com.my.spring.model.Employee;
 
 public class Main {
@@ -11,23 +11,12 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ApplicationContext ioc=new ClassPathXmlApplicationContext("application-context.xml");
+
+		employeeDao edao=ioc.getBean("edao",employeeDao.class);
 		
-//		Employee bean=ioc.getBean(Employee.class);
-//        System.out.println(bean);
+		Employee emp1=new Employee(1,"ravidas","male",23000);
 		
-		Employee bean1=ioc.getBean("emp3",Employee.class);
-		
-		Address beanAdd=ioc.getBean("add1", Address.class);
-		
-		beanAdd.setCity("Gopalganj");
-		beanAdd.setState("Bihar");
-		
-        bean1.setId(2);
-        bean1.setName("kamal");
-        bean1.setGender("male");
-        bean1.setAddress(beanAdd);
-        
-        System.out.println(bean1);
+		edao.saveEmployee(emp1);
         
         
        

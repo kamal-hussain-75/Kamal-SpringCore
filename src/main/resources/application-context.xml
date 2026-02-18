@@ -4,34 +4,19 @@
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
         
-        <bean name="emp1" class="com.my.spring.model.Employee">
-          <property name="id" value="101"></property>
-          <property name="name" value="Hussain"></property>
-          <property name="gender" value="Male"> </property>
-        </bean>
-        
-      
-        
-        
-        
-        
-        <bean name="add1" class="com.my.spring.model.Address">
-          <property name="city" value="Noida"></property>
-          <property name="state" value="UP"></property>
-        </bean>
-        
-         <bean name="emp2" class="com.my.spring.model.Employee">
-          <property name="id" value="101"></property>
-          <property name="name" value="Hussain"></property>
-          <property name="gender" value="Male"> </property>
-          <property name="address" ref="add1"></property>
-        </bean>
-        
-        <bean name="emp3" class="com.my.spring.model.Employee">
-             <constructor-arg name="id" value="201"></constructor-arg>
-             <constructor-arg name="name" value="Hamaad"></constructor-arg>
-             <constructor-arg name="gender" value="Male"></constructor-arg>
-             <constructor-arg name="address" ref="add1"></constructor-arg>
-        </bean>
+       <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/mydb" />
+		<property name="username" value="root" />
+		<property name="password" value="Kamal@2603" />
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+	
+	<bean id="edao" class="com.my.dao.employeeDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
         
 </beans>       
